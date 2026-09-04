@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "autogen-ext-hubris"
+version = "0.1.0"
+description = "AutoGen extension client preconfigured for Hubris (https://hubris.pw)"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10,<3.14"
+authors = [{ name = "Hubris", email = "support@hubris.pw" }]
+dependencies = [
+    "autogen-core>=0.4.5",
+    "autogen-ext[openai]>=0.4.5",
+]
+
+[project.urls]
+Homepage = "https://hubris.pw"
+Documentation = "https://hubris.pw/docs/integrations/autogen"
+Repository = "https://github.com/Aimagine-life/autogen-ext-hubris"
+Issues = "https://github.com/Aimagine-life/autogen-ext-hubris/issues"
+
+[project.optional-dependencies]
+test = ["pytest>=8.0.0,<9.0.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["autogen_ext_hubris"]
