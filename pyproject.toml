@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "autogen-ext-hubris"
-version = "0.1.0"
+version = "0.1.1"
 description = "AutoGen extension client preconfigured for Hubris (https://hubris.pw)"
 readme = "README.md"
 license = { text = "MIT" }

@@ -14,19 +14,19 @@ pip install autogen-ext-hubris
 from autogen_ext_hubris import HubrisChatCompletionClient
 
 client = HubrisChatCompletionClient(
-    model="claude-sonnet-5",
+    model="anthropic/claude-sonnet-5",
     api_key="sk-gw-...",  # create one at https://hubris.pw/keys
 )
 ```
 
-`HubrisChatCompletionClient` is a thin subclass of `OpenAIChatCompletionClient` — it presets `base_url` to Hubris's endpoint and resolves `model_info` for known catalog models. For a model not in the built-in registry, pass `model_info` explicitly:
+`HubrisChatCompletionClient` is a thin subclass of `OpenAIChatCompletionClient` — it presets `base_url` to Hubris's endpoint and resolves `model_info` for known catalog models. Model IDs always use the full `vendor/model` form shown in the [catalog](https://hubris.pw/models) — there's no alias resolution, an unprefixed name 404s. For a model not in the built-in registry, pass `model_info` explicitly:
 
 ```python
 from autogen_core.models import ModelFamily, ModelInfo
 from autogen_ext_hubris import HubrisChatCompletionClient
 
 client = HubrisChatCompletionClient(
-    model="some-new-model",
+    model="some-vendor/some-new-model",
     api_key="sk-gw-...",
     model_info=ModelInfo(
         vision=False,
